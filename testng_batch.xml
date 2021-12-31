@@ -4,6 +4,8 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.crm.autodesk.contactsTest.CreateMailMergeTemplateWithModuleOrganization"/>
+       <class name="com.crm.autodesk.contactsTest.CreateMailMergeTemplateWithModuleOrganization"/>
+       <class name="com.crm.autodesk.contactsTest.CreateMailMergeTemplateWithModuleOrganization"/>
       <class name="com.crm.autodesk.OrgTest.CreateOrganizationTest"/>
       <class name="com.crm.autodesk.contactsTest.CreateContactswithOrganizationTest"/>
       <class name="com.crm.autodesk.contactsTest.CreateContactsTest"/>
