@@ -7,6 +7,7 @@ import com.github.seratch.jslack.api.webhook.Payload;
 import com.github.seratch.jslack.api.webhook.WebhookResponse;
 
 public class SlackIntegrationTest {
+	//pgm
 
 		private static String urlSlackWebHook = "https://hooks.slack.com/services/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";
 		private static String channelName = "sdet";
