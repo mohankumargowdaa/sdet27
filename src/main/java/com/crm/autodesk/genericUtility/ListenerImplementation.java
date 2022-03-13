@@ -5,7 +5,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class ListenerImplementation implements ITestListener{
-
+SlackIntegrationTest slack=new SlackIntegrationTest();
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
 		
@@ -13,13 +13,27 @@ public class ListenerImplementation implements ITestListener{
 
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
+		String methodName=result.getMethod().getMethodName();
+		try {
+			slack.sendTestExecutionStatusToSlack(methodName+" is Passed");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 	}
 
 	public void onTestFailure(ITestResult result) {
 		//capture the method name in run time
+		
+		
 		String methodName=result.getMethod().getMethodName();
-				
+		try {
+			slack.sendTestExecutionStatusToSlack(methodName+" is Failed");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		//capture the current date
 		String currentDate=new JavaUtility().getSystemDateInFormat();
 		
@@ -30,7 +44,7 @@ public class ListenerImplementation implements ITestListener{
 try {
 	new WebDriverUtility().takeScreenShot(BaseClass.sdriver, result);
 } catch (Throwable e) {
-	// TODO Auto-generated catch block
+	// TODO A-uto-generated catch block
 	e.printStackTrace();
 }
 		
@@ -38,11 +52,27 @@ try {
 
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
+		String methodName=result.getMethod().getMethodName();
+		try {
+			slack.sendTestExecutionStatusToSlack(methodName+" is skipped");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
+		String methodName=result.getMethod().getMethodName();
+		try {
+			slack.sendTestExecutionStatusToSlack(methodName+" is Failed");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 	}
 

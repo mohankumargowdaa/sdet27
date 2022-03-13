@@ -9,7 +9,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.crm.autodesk.ObjectRepository.HomePage;
@@ -22,21 +21,10 @@ public class BaseClass {
 	public FileUtility fLib=new FileUtility();
 	public JavaUtility jLib= new JavaUtility();
 	public WebDriverUtility wLib=new WebDriverUtility();
-	public DataBaseUtility dbLib=new DataBaseUtility();
 	public static WebDriver sdriver; // for take ScreenShot for Failed TestCASE
 	
 	
-	@BeforeSuite
-	public void openDataBaseConnection() throws Throwable {
-		//read the Data
-		String DBUrl=fLib.getPropertyKeyValue("dbUrl");
-		String DBName=fLib.getPropertyKeyValue("dbName");
-		String DBUserName=fLib.getPropertyKeyValue("DBUserName");
-		String DBPassword=fLib.getPropertyKeyValue("DBPassword");
-		
-		dbLib.getDBConnection(DBUrl,DBName,DBUserName,DBPassword);
-		System.out.println("=====DataBase Connection Estrablished======");
-	}
+	
 	
 	
 	//@Parameters("browser")
@@ -106,7 +94,7 @@ public class BaseClass {
 	
 	@AfterSuite
 	public void closeDBConnection() throws Throwable {
-		dbLib.closeDBConnection();
+		//dbLib.closeDBConnection();
 		System.out.println("=======DataBase Connection Closed=========");
 	}
 }
